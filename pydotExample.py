@@ -1,12 +1,11 @@
-import pydot
+import pydotplus as ptp
 
-
-graph = pydot.Dot('my_graph', graph_type = 'graph', bgcolor = 'yellow')
-
-my_node = pydot.Node('a', label = 'foo')
-graph.add_node(my_node)
-graph.add_node(pydot.Node('b', shape='circle'))
-
-my_edge = pydot.Edge('a','b',color = 'blue')
-graph.add_edge(my_edge)
-graph.write_raw('output.dot')
+graph = ptp.Dot(graph_type='graph')
+edges = [("A","B"), ("A","C"), ("B","D"), ("B","E"), ("C","E")]
+nodes = [("A", "red"), ("B", "green"), ("C", "green"), ("D", "red"), ("E", "green")]
+for e in edges:
+    graph.add_edge(ptp.Edge(e[0], e[1]))
+for n in nodes:
+    node = ptp.Node(name=n[0], label= n[0], fillcolor=n[1], style="filled" )
+    graph.add_node(node)
+graph.write_dot("file.dot")
