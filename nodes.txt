@@ -1,4 +1,5 @@
-A,5,20
+name,nodes,time
+A,5,PT2H3M
 B,2,3
 C,3,10
 D,3,5
