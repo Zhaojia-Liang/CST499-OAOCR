@@ -7,8 +7,10 @@ class ParallelNode(pydotplus.Node):
         self.isFinished = False
         self.nodesNecessary = nodesNecessary
 graph = pydotplus.graph_from_dot_file(sys.argv[1])
-
-node1 = ParallelNode(graph.get_nodes()[0],4,8)
+nodes = []
+for node in graph.get_nodes():
+    
+node1 = ParallelNode(graph.get_nodes()[3],4,8)
 
 print (node1.get_name())
 print (node1.timeNeeded)
