@@ -18,10 +18,12 @@ First_edge = pydot.Edge('A', 'B')
 Second_edge = pydot.Edge('A', 'C')
 Third_edge = pydot.Edge('B', 'D')
 Forth_edge = pydot.Edge('B', 'E')
+Fifth_edge = pydot.Edge('A', 'D')
 
 graph.add_edge(First_edge)
 graph.add_edge(Second_edge)
 graph.add_edge(Third_edge)
 graph.add_edge(Forth_edge)
+graph.add_edge(Fifth_edge)
 
 graph.write_raw('Sample.dot')
