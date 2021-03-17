@@ -1,6 +1,6 @@
 import pydot
 
-graph = pydot.Dot('my_graph', graph_type='graph')
+graph = pydot.Dot('my_graph', graph_type='digraph')
 
 A_node = pydot.Node('A')
 B_node = pydot.Node('B')
