@@ -6,6 +6,7 @@ class ParallelNode(pydotplus.Node):
         pydotplus.Node.__init__(self,node.get_name(),node.obj_dict)
         self.timeNeeded = int(time)
         self.isFinished = False
+        self.isReady = False
         self.nodesNecessary = int(nodesNecessary)
         self.sources = []
         #self.destinations = destinations
@@ -34,13 +35,13 @@ def getSources(nodeList,node):
                 if single.get_name() == edge.get_source():
                     sources.append(single)
     return sources   
-def knapSack(waiting,nodesReady):
+def knapSack(waitingList,nodesReady):
     timeMax = 0
-    tempReady = []
+    tempR = []
     nodes = 0
     n = 0
-    while(n != len(waiting)+1):
-        comb = list(combinations(waiting,n))
+    while(n != len(waitingList)+1):
+        comb = list(combinations(waitingList,n))
         for nodeList in comb:
             nodesCount = 0
             timeCount = 0
@@ -49,13 +50,13 @@ def knapSack(waiting,nodesReady):
                 nodesCount += node.nodesNecessary
                 timeCount += node.timeNeeded
                 temp.append(node)
-        if nodesCount <= nodesMax:
+        if nodesCount <= nodesReady:
             if timeCount > timeMax:
                 timeMax = timeCount
-                tempReady = temp
+                tempR = temp
                 nodes = nodesCount
         n = n + 1
-    return tempReady,nodes;
+    return tempR,nodes;
 graph = pydotplus.graph_from_dot_file(sys.argv[1])
 requirements = open(sys.argv[2],"r")
 
@@ -69,13 +70,16 @@ running,ready,waiting,finished = [],[],[],[]
 runtime = 0
 for node in nodes:
     if not node.sources:
+        node.isReady = True
         ready.append(node)
-    else: 
+    else:
         waiting.append(node)
 
 nodesMax = 8
 nodesReady = nodesMax
 tempReady,tempNodes = knapSack(ready,nodesReady)
+for node in tempReady:
+    ready.remove(node)
 running.extend(tempReady)
 nodesReady -=tempNodes
 while(running):
@@ -85,22 +89,27 @@ while(running):
     for node in running:
         node.timeNeeded-=1
         if node.timeNeeded == 0:
-            print("Node:",node.get_name(),"Finished")
-            running.remove(node)
+            print("Node:",node.get_name(),"Finished Current time: ",runtime)
             finished.append(node)
             node.isFinished = True
-            print("Node:",node.get_name(),"Current status:",node.isFinished)
             nodesReady+=node.nodesNecessary
-            sys.exit()
+            #sys.exit()
+    running = [node for node in running if node not in finished]
     for node in waiting:
+        node.isReady = True
         for source in node.sources:
             if not source.isFinished:
-                #print (source.isFinished)
-                break   
-    tempReady,tempNodes = knapSack(ready,nodesReady)
-    running.extend(tempReady)
-    nodesReady-=tempNodes
-    for node in tempReady:
-        print ("Currently running:",node.get_name(),"with time",node.timeNeeded,"left")
-    #currently broken we need to clear tempReady and we also need to remove thing from ready
-    #consider passing by reference instead of by value for the knapsack code
+                node.isReady = False
+                break
+        if node.isReady:
+            ready.append(node)
+    waiting = [node for node in waiting if node not in ready]
+    if ready:
+        tempReady,tempNodes = knapSack(ready,nodesReady)
+        for node in tempReady:
+            ready.remove(node)
+        running.extend(tempReady)
+        nodesReady-=tempNodes
+    #for node in running:
+    #    print ("Currently running:",node.get_name(),"with time",node.timeNeeded,"left")
+print("Total uptime: ",runtime)
