@@ -69,26 +69,38 @@ running,ready,waiting,finished = [],[],[],[]
 runtime = 0
 for node in nodes:
     if not node.sources:
+        ready.append(node)
+    else: 
         waiting.append(node)
 
-for node in nodes:
-    for source in node.sources:
-        print ("hello i am:",node.get_name(),"and my source is",source.get_name())
 nodesMax = 8
 nodesReady = nodesMax
-tempReady,tempNodes = knapSack(waiting,nodesReady)
-running.append(tempReady)
+tempReady,tempNodes = knapSack(ready,nodesReady)
+running.extend(tempReady)
 nodesReady -=tempNodes
 while(running):
-    runtime++
+    tempReady = []
+    tempNodes = 0
+    runtime+=1
     for node in running:
-        node.timeNeeded--
-        if thing.timeNeeded == 0:
+        node.timeNeeded-=1
+        if node.timeNeeded == 0:
+            print("Node:",node.get_name(),"Finished")
             running.remove(node)
             finished.append(node)
             node.isFinished = True
+            print("Node:",node.get_name(),"Current status:",node.isFinished)
             nodesReady+=node.nodesNecessary
+            sys.exit()
     for node in waiting:
         for source in node.sources:
             if not source.isFinished:
-                #then its not done
+                #print (source.isFinished)
+                break   
+    tempReady,tempNodes = knapSack(ready,nodesReady)
+    running.extend(tempReady)
+    nodesReady-=tempNodes
+    for node in tempReady:
+        print ("Currently running:",node.get_name(),"with time",node.timeNeeded,"left")
+    #currently broken we need to clear tempReady and we also need to remove thing from ready
+    #consider passing by reference instead of by value for the knapsack code
