@@ -9,7 +9,6 @@ class ParallelNode(pydotplus.Node):
         self.sources = sources
         #self.destinations = destinations
 
-
 def initializeNodes(graph,requirements):
     nodes = []
     for node in graph.get_nodes():
@@ -22,6 +21,7 @@ def initializeNodes(graph,requirements):
                 nodes.append(newNode)
                 break
     return nodes
+
 def getSources(graph,node):
     sources = []
     edges = graph.get_edges()
@@ -30,17 +30,30 @@ def getSources(graph,node):
             sources.append(edge.get_source())
     return sources   
 
+# Main
 graph = pydotplus.graph_from_dot_file(sys.argv[1])
 requirements = open(sys.argv[2],"r")
 
 nodes = initializeNodes(graph,requirements)
-    
+
+runningList = []
+waitingList = []
+requiredNodes = 0
+requiredTime = 0
+
+# Check who is going to run first
 for node in nodes:
-    print(node.get_name())
-    print(node.timeNeeded)
-    print(node.nodesNecessary)
-    if node.sources:
-        print (node.get_name(),"'s sources are",node.sources)
-    else:
-        print (node.get_name()," has no sources")
+	print(node.get_name())
+	print(node.timeNeeded)
+	print(node.nodesNecessary)
+	if node.sources:
+		waitingList.append(node)
+		print (node.get_name(),"'s sources are",node.sources)
+	else:
+		runningList.append(node)
+		print (node.get_name()," has no sources")
+
+print(waitingList[1])
+print(runningList)
+
 requirements.close()
