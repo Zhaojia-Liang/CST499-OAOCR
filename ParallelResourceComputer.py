@@ -1,6 +1,8 @@
 import pydotplus
 import sys
 from itertools import combinations
+from copy import deepcopy
+
 class ParallelNode(pydotplus.Node):
     def __init__(self,node,nodesNecessary,time):
         pydotplus.Node.__init__(self,node.get_name(),node.obj_dict)
@@ -9,6 +11,7 @@ class ParallelNode(pydotplus.Node):
         self.isReady = False
         self.nodesNecessary = int(nodesNecessary)
         self.sources = []
+        self.originalTime = int(time)
         #self.destinations = destinations
     def setSources(self,sources):
         self.sources = sources
@@ -41,6 +44,7 @@ def knapSack(waitingList,nodesReady):
     nodess = 0
     n = 0
     while(n != len(waitingList)+1):
+        #print("in loop")
         comb = list(combinations(waitingList,n))
         for nodeL in comb:
             nodesCount = 0
@@ -50,6 +54,8 @@ def knapSack(waitingList,nodesReady):
                 nodesCount += node.nodesNecessary
                 timeCount += node.timeNeeded
                 temp.append(node)
+        #print(nodesCount)
+        #print(timeCount)
         if nodesCount <= nodesReady:
             if timeCount > timeMax:
                 timeMax = timeCount
@@ -69,7 +75,8 @@ def workFlowSimulator(nodeList,nodeAmount):
         else:
             waiting.append(node)
     #for node in nodeList:
-    #    print(node.get_name(),node.nodesNecessary)
+        #print(node.get_name(),node.nodesNecessary)
+        #print(node.get_name(),node.timeNeeded)
     #for node in ready:
     #    print(node.get_name(),node.nodesNecessary)
     nodesReady = nodeAmount
@@ -99,6 +106,7 @@ def workFlowSimulator(nodeList,nodeAmount):
                 #print("Node:",node.get_name(),"Finished Current time: ",runtime)
                 finished.append(node)
                 node.isFinished = True
+                node.timeNeeded = node.originalTime
                 nodesReady+=node.nodesNecessary
                 #sys.exit()
         running = [node for node in running if node not in finished]
@@ -136,6 +144,4 @@ for node in nodes:
 requirements.close()
 #workFlowSimulator(nodes,10)    
 for x in range(nodeMin,nodesMax+1):
-    currentList = nodes[:]
-    workFlowSimulator(currentList,x)
-    currentList.clear()
+    workFlowSimulator(nodes,x)
