@@ -1,7 +1,6 @@
 import pydotplus
 import sys
 from itertools import combinations
-from copy import deepcopy
 
 class ParallelNode(pydotplus.Node):
     def __init__(self,node,nodesNecessary,time):
@@ -67,6 +66,7 @@ def workFlowSimulator(nodeList,nodeAmount):
     #print (nodeAmount)
     #print(len(nodeList))
     running,ready,waiting,finished = [],[],[],[]
+    efficiency = []
     runtime = 0
     for node in nodeList:
         if not node.sources:
@@ -99,6 +99,8 @@ def workFlowSimulator(nodeList,nodeAmount):
     while(running):
         tempReady = []
         tempNodes = 0
+        #print((nodeAmount-nodesReady)/nodeAmount)
+        efficiency.append((nodeAmount-nodesReady)/nodeAmount)
         runtime+=1
         for node in running:
             node.timeNeeded-=1
@@ -106,7 +108,6 @@ def workFlowSimulator(nodeList,nodeAmount):
                 #print("Node:",node.get_name(),"Finished Current time: ",runtime)
                 finished.append(node)
                 node.isFinished = True
-                node.timeNeeded = node.originalTime
                 nodesReady+=node.nodesNecessary
                 #sys.exit()
         running = [node for node in running if node not in finished]
@@ -127,7 +128,14 @@ def workFlowSimulator(nodeList,nodeAmount):
             nodesReady-=tempNodes
         #for node in running:
         #    print ("Currently running:",node.get_name(),"with time",node.timeNeeded,"left")
+        #print(nodesReady)
+        #print(nodeAmount)
     print("Total uptime: ",runtime)
+    print("Average Efficency: ",round((sum(efficiency)/runtime)*100,2),"%")
+    for node in finished:
+        node.isFinished = False
+        node.isReady = False
+        node.timeNeeded = node.originalTime
 
 graph = pydotplus.graph_from_dot_file(sys.argv[1])
 requirements = open(sys.argv[2],"r")
@@ -144,4 +152,5 @@ for node in nodes:
 requirements.close()
 #workFlowSimulator(nodes,10)    
 for x in range(nodeMin,nodesMax+1):
+    tup = ()
     workFlowSimulator(nodes,x)
