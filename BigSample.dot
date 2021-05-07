@@ -1,0 +1,21 @@
+digraph my_graph {
+A;
+B;
+C;
+D;
+E;
+F;
+G;
+H;
+I;
+J;
+A -> B;
+A -> C;
+B -> D;
+B -> E;
+A -> D;
+A -> F;
+F -> G;
+G -> I;
+G -> H;
+}
