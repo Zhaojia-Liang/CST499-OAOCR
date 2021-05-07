@@ -1,6 +1,8 @@
 import pydotplus
 import sys
+import datetime
 from itertools import combinations
+
 
 class ParallelNode(pydotplus.Node):
     def __init__(self,node,nodesNecessary,time):
@@ -24,7 +26,8 @@ def initializeNodes(graph,requirements):
             if (splitLine[0] == node.get_name()):
                 #sources = getSources(graph,node)
                 #destinations = get_destinations(node,graph)
-                newNode = ParallelNode(node,splitLine[1],splitLine[2])
+                ISOtime = parse_isoduration(splitLine[2])
+                newNode = ParallelNode(node,splitLine[1],ISOtime)
                 nodes.append(newNode)
                 break
     return nodes
@@ -36,7 +39,23 @@ def getSources(nodeList,node):
             for single in nodeList:
                 if single.get_name() == edge.get_source():
                     sources.append(single)
-    return sources   
+    return sources
+def get_isosplit(s,split):
+    if split in s:
+        n, s = s.split(split)
+    else:
+        n = 0
+    return n, s
+def parse_isoduration(s):
+    s = s.split('P')[-1]
+    days, s = get_isosplit(s, 'D')
+    _, s = get_isosplit(s, 'T')
+    hours, s = get_isosplit(s, 'H')
+    minutes, s = get_isosplit(s, 'M')
+    seconds, s = get_isosplit(s, 'S')
+    
+    dt = datetime.timedelta(days = int(days), hours = int(hours), minutes = int(minutes), seconds = int(seconds))
+    return int(dt.total_seconds())
 def knapSack(waitingList,nodesReady):
     timeMax = 0
     tempR = []
@@ -130,12 +149,13 @@ def workFlowSimulator(nodeList,nodeAmount):
         #    print ("Currently running:",node.get_name(),"with time",node.timeNeeded,"left")
         #print(nodesReady)
         #print(nodeAmount)
-    print("Total uptime: ",runtime)
-    print("Average Efficency: ",round((sum(efficiency)/runtime)*100,2),"%")
+    #print("Total uptime: ",runtime)
+    #print("Average Efficency: ",round((sum(efficiency)/runtime)*100,2),"%")
     for node in finished:
         node.isFinished = False
         node.isReady = False
         node.timeNeeded = node.originalTime
+    return round((sum(efficiency)/runtime)*100,2),runtime,nodeAmount
 
 graph = pydotplus.graph_from_dot_file(sys.argv[1])
 requirements = open(sys.argv[2],"r")
@@ -143,6 +163,7 @@ requirements = open(sys.argv[2],"r")
 nodes = initializeNodes(graph,requirements)
 nodesMax = 0
 nodeMin = nodes[0].nodesNecessary
+GraphPoints = []
 for node in nodes:
     if node.nodesNecessary > nodeMin:
         nodeMin = node.nodesNecessary
@@ -150,7 +171,12 @@ for node in nodes:
     sources = getSources(nodes,node)
     node.setSources(sources)
 requirements.close()
-#workFlowSimulator(nodes,10)    
+#workFlowSimulator(nodes,10) ' 
 for x in range(nodeMin,nodesMax+1):
     tup = ()
-    workFlowSimulator(nodes,x)
+    tup = tuple(workFlowSimulator(nodes,x))
+    GraphPoints.append(tup)
+for point in GraphPoints:
+    print("Amount of Nodes",point[2])
+    print("Runtime",point[1])
+    print("Average efficiency: ", point[0])
