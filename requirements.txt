@@ -1,0 +1,6 @@
+appdirs==1.4.3
+distlib==0.3.0
+pydotplus==2.0.2
+pyparsing==2.4.7
+pytz==2019.3
+six==1.14.0
