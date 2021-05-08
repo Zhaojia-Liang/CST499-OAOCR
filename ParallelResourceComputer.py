@@ -31,6 +31,7 @@ def initializeNodes(graph,requirements):
                 nodes.append(newNode)
                 break
     return nodes
+    
 def getSources(nodeList,node):
     sources = []
     edges = graph.get_edges()
@@ -39,23 +40,7 @@ def getSources(nodeList,node):
             for single in nodeList:
                 if single.get_name() == edge.get_source():
                     sources.append(single)
-    return sources
-def get_isosplit(s,split):
-    if split in s:
-        n, s = s.split(split)
-    else:
-        n = 0
-    return n, s
-def parse_isoduration(s):
-    s = s.split('P')[-1]
-    days, s = get_isosplit(s, 'D')
-    _, s = get_isosplit(s, 'T')
-    hours, s = get_isosplit(s, 'H')
-    minutes, s = get_isosplit(s, 'M')
-    seconds, s = get_isosplit(s, 'S')
-    
-    dt = datetime.timedelta(days = int(days), hours = int(hours), minutes = int(minutes), seconds = int(seconds))
-    return int(dt.total_seconds())
+                    
 def knapSack(waitingList,nodesReady):
     timeMax = 0
     tempR = []
