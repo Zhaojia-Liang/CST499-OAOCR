@@ -33,6 +33,7 @@ Sixth_edge = pydot.Edge('A', 'F')
 Seventh_edge = pydot.Edge('F', 'G')
 Eighth_edge = pydot.Edge('G', 'I')
 Ninth_edge = pydot.Edge('G', 'H')
+Tenth_edge = pydot.Edge('E', 'I')
 
 
 graph.add_edge(First_edge)
@@ -44,5 +45,5 @@ graph.add_edge(Sixth_edge)
 graph.add_edge(Seventh_edge)
 graph.add_edge(Eighth_edge)
 graph.add_edge(Ninth_edge)
-
+graph.add_edge(Tenth_edge)
 graph.write_raw('BigSample.dot')

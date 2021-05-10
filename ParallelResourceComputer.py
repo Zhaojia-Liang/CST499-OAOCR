@@ -31,6 +31,8 @@ def initializeNodes(graph,requirements):
                 nodes.append(newNode)
                 break
     return nodes
+    
+    
 def getSources(nodeList,node):
     sources = []
     edges = graph.get_edges()
@@ -40,12 +42,16 @@ def getSources(nodeList,node):
                 if single.get_name() == edge.get_source():
                     sources.append(single)
     return sources
+    
+    
 def get_isosplit(s,split):
     if split in s:
         n, s = s.split(split)
     else:
         n = 0
     return n, s
+    
+    
 def parse_isoduration(s):
     s = s.split('P')[-1]
     days, s = get_isosplit(s, 'D')
@@ -56,11 +62,15 @@ def parse_isoduration(s):
     
     dt = datetime.timedelta(days = int(days), hours = int(hours), minutes = int(minutes), seconds = int(seconds))
     return int(dt.total_seconds())
+    
+    
 def knapSack(waitingList,nodesReady):
     timeMax = 0
+    nodeMax = 0
     tempR = []
     nodess = 0
     n = 0
+    #print(nodesReady)
     while(n != len(waitingList)+1):
         #print("in loop")
         comb = list(combinations(waitingList,n))
@@ -71,16 +81,28 @@ def knapSack(waitingList,nodesReady):
             for node in nodeL:
                 nodesCount += node.nodesNecessary
                 timeCount += node.timeNeeded
+                #print(node.get_name(), end = ", ")
                 temp.append(node)
-        #print(nodesCount)
-        #print(timeCount)
-        if nodesCount <= nodesReady:
-            if timeCount > timeMax:
-                timeMax = timeCount
-                tempR = temp
-                nodess = nodesCount
+            #print(nodesCount, end = ", ")
+            #print(timeCount, end = ", ")
+            #print(nodeMax, end = ", ")
+            #print(timeMax)
+            #print("\n")
+            if nodesCount <= nodesReady: # and nodesCount >= nodeMax:
+                #print("nodes less than, nodes ready and greater than nodemax")
+                if nodesCount >= nodeMax:
+            #if timeCount > timeMax:
+                    #for node in temp:
+                        #print(node.get_name())
+                    nodeMax = nodesCount
+                    timeMax = timeCount
+                    tempR = temp
+                    nodess = nodesCount
         n = n + 1
+
     return tempR,nodess;
+    
+    
 def workFlowSimulator(nodeList,nodeAmount):
     #print (nodeAmount)
     #print(len(nodeList))
@@ -101,6 +123,7 @@ def workFlowSimulator(nodeList,nodeAmount):
     nodesReady = nodeAmount
     tempReady,tempNodes = knapSack(ready,nodesReady)
     for node in tempReady:
+        print("now running: ",node.get_name())
         ready.remove(node)
     running.extend(tempReady)
     nodesReady -=tempNodes
@@ -124,7 +147,7 @@ def workFlowSimulator(nodeList,nodeAmount):
         for node in running:
             node.timeNeeded-=1
             if node.timeNeeded == 0:
-                #print("Node:",node.get_name(),"Finished Current time: ",runtime)
+                print("Node:",node.get_name(),"Finished Current time: ",runtime)
                 finished.append(node)
                 node.isFinished = True
                 nodesReady+=node.nodesNecessary
@@ -137,16 +160,18 @@ def workFlowSimulator(nodeList,nodeAmount):
                     node.isReady = False
                     break
             if node.isReady:
+                print("now ready: ", node.get_name())
                 ready.append(node)
         waiting = [node for node in waiting if node not in ready]
         if ready:
             tempReady,tempNodes = knapSack(ready,nodesReady)
             for node in tempReady:
+                print("now starting: ",node.get_name())
                 ready.remove(node)
             running.extend(tempReady)
             nodesReady-=tempNodes
         #for node in running:
-        #    print ("Currently running:",node.get_name(),"with time",node.timeNeeded,"left")
+            #print ("Currently running:",node.get_name(),"with time",node.timeNeeded,"left")
         #print(nodesReady)
         #print(nodeAmount)
     #print("Total uptime: ",runtime)
@@ -175,8 +200,9 @@ requirements.close()
 for x in range(nodeMin,nodesMax+1):
     tup = ()
     tup = tuple(workFlowSimulator(nodes,x))
+    print("Finished")
     GraphPoints.append(tup)
 for point in GraphPoints:
     print("Amount of Nodes",point[2])
     print("Runtime",point[1])
-    print("Average efficiency: ", point[0])
+    print("Average efficiency: ", point[0],"\n")
