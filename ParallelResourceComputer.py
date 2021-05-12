@@ -2,6 +2,7 @@ import pydotplus
 import sys
 import datetime
 from itertools import combinations
+import matplotlib.pyplot as plt
 
 
 class ParallelNode(pydotplus.Node):
@@ -123,7 +124,7 @@ def workFlowSimulator(nodeList,nodeAmount):
     nodesReady = nodeAmount
     tempReady,tempNodes = knapSack(ready,nodesReady)
     for node in tempReady:
-        print("now running: ",node.get_name())
+        #print("now running: ",node.get_name())
         ready.remove(node)
     running.extend(tempReady)
     nodesReady -=tempNodes
@@ -147,7 +148,7 @@ def workFlowSimulator(nodeList,nodeAmount):
         for node in running:
             node.timeNeeded-=1
             if node.timeNeeded == 0:
-                print("Node:",node.get_name(),"Finished Current time: ",runtime)
+                #print("Node:",node.get_name(),"Finished Current time: ",runtime)
                 finished.append(node)
                 node.isFinished = True
                 nodesReady+=node.nodesNecessary
@@ -160,13 +161,13 @@ def workFlowSimulator(nodeList,nodeAmount):
                     node.isReady = False
                     break
             if node.isReady:
-                print("now ready: ", node.get_name())
+                #print("now ready: ", node.get_name())
                 ready.append(node)
         waiting = [node for node in waiting if node not in ready]
         if ready:
             tempReady,tempNodes = knapSack(ready,nodesReady)
             for node in tempReady:
-                print("now starting: ",node.get_name())
+                #print("now starting: ",node.get_name())
                 ready.remove(node)
             running.extend(tempReady)
             nodesReady-=tempNodes
@@ -182,27 +183,42 @@ def workFlowSimulator(nodeList,nodeAmount):
         node.timeNeeded = node.originalTime
     return round((sum(efficiency)/runtime)*100,2),runtime,nodeAmount
 
-graph = pydotplus.graph_from_dot_file(sys.argv[1])
-requirements = open(sys.argv[2],"r")
+if __name__ == "__main__":
+    graph = pydotplus.graph_from_dot_file(sys.argv[1])
+    requirements = open(sys.argv[2],"r")
 
-nodes = initializeNodes(graph,requirements)
-nodesMax = 0
-nodeMin = nodes[0].nodesNecessary
-GraphPoints = []
-for node in nodes:
-    if node.nodesNecessary > nodeMin:
-        nodeMin = node.nodesNecessary
-    nodesMax += node.nodesNecessary
-    sources = getSources(nodes,node)
-    node.setSources(sources)
-requirements.close()
-#workFlowSimulator(nodes,10) ' 
-for x in range(nodeMin,nodesMax+1):
-    tup = ()
-    tup = tuple(workFlowSimulator(nodes,x))
-    print("Finished")
-    GraphPoints.append(tup)
-for point in GraphPoints:
-    print("Amount of Nodes",point[2])
-    print("Runtime",point[1])
-    print("Average efficiency: ", point[0],"\n")
+    nodes = initializeNodes(graph,requirements)
+    nodesMax = 0
+    nodeMin = nodes[0].nodesNecessary
+    efficiencyMetric,runtimeMetric,nodeAmounts = [],[],[]
+    for node in nodes:
+        if node.nodesNecessary > nodeMin:
+            nodeMin = node.nodesNecessary
+        nodesMax += node.nodesNecessary
+        sources = getSources(nodes,node)
+        node.setSources(sources)
+    requirements.close()
+    #workFlowSimulator(nodes,10) ' 
+    for x in range(nodeMin,nodesMax+1):
+        tup = ()
+        tup = tuple(workFlowSimulator(nodes,x))
+        #print("Finished")
+        efficiencyMetric.append(tup[0])
+        runtimeMetric.append(tup[1])
+        nodeAmounts.append(tup[2])
+    fig,ax = plt.subplots()
+    
+    color = 'tab:red'
+    ax.set_xlabel('Nodes')
+    ax.set_ylabel('Time (s)', color = color)
+    ax.tick_params(axis = 'y', labelcolor = color)
+    ax.plot(nodeAmounts,runtimeMetric, color = color, marker = 'o')
+    
+    ax2 = ax.twinx()
+    color = 'tab:blue'
+    ax2.set_ylabel('Efficiency(% - Active/Total)', color = color)
+    ax2.plot(nodeAmounts,efficiencyMetric, color = color, marker = 'o')
+    ax2.tick_params(axis = 'y', labelcolor = color)
+    
+    fig.tight_layout()
+    plt.show()
