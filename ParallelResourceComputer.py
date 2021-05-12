@@ -2,6 +2,7 @@ import pydotplus
 import sys
 import datetime
 from itertools import combinations
+import matplotlib.pyplot as plt
 
 
 class ParallelNode(pydotplus.Node):
@@ -31,6 +32,8 @@ def initializeNodes(graph,requirements):
                 nodes.append(newNode)
                 break
     return nodes
+    
+    
 def getSources(nodeList,node):
     sources = []
     edges = graph.get_edges()
@@ -40,12 +43,16 @@ def getSources(nodeList,node):
                 if single.get_name() == edge.get_source():
                     sources.append(single)
     return sources
+    
+    
 def get_isosplit(s,split):
     if split in s:
         n, s = s.split(split)
     else:
         n = 0
     return n, s
+    
+    
 def parse_isoduration(s):
     s = s.split('P')[-1]
     days, s = get_isosplit(s, 'D')
@@ -56,11 +63,15 @@ def parse_isoduration(s):
     
     dt = datetime.timedelta(days = int(days), hours = int(hours), minutes = int(minutes), seconds = int(seconds))
     return int(dt.total_seconds())
+    
+    
 def knapSack(waitingList,nodesReady):
     timeMax = 0
+    nodeMax = 0
     tempR = []
     nodess = 0
     n = 0
+    #print(nodesReady)
     while(n != len(waitingList)+1):
         #print("in loop")
         comb = list(combinations(waitingList,n))
@@ -71,16 +82,28 @@ def knapSack(waitingList,nodesReady):
             for node in nodeL:
                 nodesCount += node.nodesNecessary
                 timeCount += node.timeNeeded
+                #print(node.get_name(), end = ", ")
                 temp.append(node)
-        #print(nodesCount)
-        #print(timeCount)
-        if nodesCount <= nodesReady:
-            if timeCount > timeMax:
-                timeMax = timeCount
-                tempR = temp
-                nodess = nodesCount
+            #print(nodesCount, end = ", ")
+            #print(timeCount, end = ", ")
+            #print(nodeMax, end = ", ")
+            #print(timeMax)
+            #print("\n")
+            if nodesCount <= nodesReady: # and nodesCount >= nodeMax:
+                #print("nodes less than, nodes ready and greater than nodemax")
+                if nodesCount >= nodeMax:
+            #if timeCount > timeMax:
+                    #for node in temp:
+                        #print(node.get_name())
+                    nodeMax = nodesCount
+                    timeMax = timeCount
+                    tempR = temp
+                    nodess = nodesCount
         n = n + 1
+
     return tempR,nodess;
+    
+    
 def workFlowSimulator(nodeList,nodeAmount):
     #print (nodeAmount)
     #print(len(nodeList))
@@ -101,6 +124,7 @@ def workFlowSimulator(nodeList,nodeAmount):
     nodesReady = nodeAmount
     tempReady,tempNodes = knapSack(ready,nodesReady)
     for node in tempReady:
+        #print("now running: ",node.get_name())
         ready.remove(node)
     running.extend(tempReady)
     nodesReady -=tempNodes
@@ -137,16 +161,18 @@ def workFlowSimulator(nodeList,nodeAmount):
                     node.isReady = False
                     break
             if node.isReady:
+                #print("now ready: ", node.get_name())
                 ready.append(node)
         waiting = [node for node in waiting if node not in ready]
         if ready:
             tempReady,tempNodes = knapSack(ready,nodesReady)
             for node in tempReady:
+                #print("now starting: ",node.get_name())
                 ready.remove(node)
             running.extend(tempReady)
             nodesReady-=tempNodes
         #for node in running:
-        #    print ("Currently running:",node.get_name(),"with time",node.timeNeeded,"left")
+            #print ("Currently running:",node.get_name(),"with time",node.timeNeeded,"left")
         #print(nodesReady)
         #print(nodeAmount)
     #print("Total uptime: ",runtime)
@@ -157,26 +183,42 @@ def workFlowSimulator(nodeList,nodeAmount):
         node.timeNeeded = node.originalTime
     return round((sum(efficiency)/runtime)*100,2),runtime,nodeAmount
 
-graph = pydotplus.graph_from_dot_file(sys.argv[1])
-requirements = open(sys.argv[2],"r")
+if __name__ == "__main__":
+    graph = pydotplus.graph_from_dot_file(sys.argv[1])
+    requirements = open(sys.argv[2],"r")
 
-nodes = initializeNodes(graph,requirements)
-nodesMax = 0
-nodeMin = nodes[0].nodesNecessary
-GraphPoints = []
-for node in nodes:
-    if node.nodesNecessary > nodeMin:
-        nodeMin = node.nodesNecessary
-    nodesMax += node.nodesNecessary
-    sources = getSources(nodes,node)
-    node.setSources(sources)
-requirements.close()
-#workFlowSimulator(nodes,10) ' 
-for x in range(nodeMin,nodesMax+1):
-    tup = ()
-    tup = tuple(workFlowSimulator(nodes,x))
-    GraphPoints.append(tup)
-for point in GraphPoints:
-    print("Amount of Nodes",point[2])
-    print("Runtime",point[1])
-    print("Average efficiency: ", point[0])
+    nodes = initializeNodes(graph,requirements)
+    nodesMax = 0
+    nodeMin = nodes[0].nodesNecessary
+    efficiencyMetric,runtimeMetric,nodeAmounts = [],[],[]
+    for node in nodes:
+        if node.nodesNecessary > nodeMin:
+            nodeMin = node.nodesNecessary
+        nodesMax += node.nodesNecessary
+        sources = getSources(nodes,node)
+        node.setSources(sources)
+    requirements.close()
+    #workFlowSimulator(nodes,10) ' 
+    for x in range(nodeMin,nodesMax+1):
+        tup = ()
+        tup = tuple(workFlowSimulator(nodes,x))
+        #print("Finished")
+        efficiencyMetric.append(tup[0])
+        runtimeMetric.append(tup[1])
+        nodeAmounts.append(tup[2])
+    fig,ax = plt.subplots()
+    
+    color = 'tab:red'
+    ax.set_xlabel('Nodes')
+    ax.set_ylabel('Time (s)', color = color)
+    ax.tick_params(axis = 'y', labelcolor = color)
+    ax.plot(nodeAmounts,runtimeMetric, color = color, marker = 'o')
+    
+    ax2 = ax.twinx()
+    color = 'tab:blue'
+    ax2.set_ylabel('Efficiency(% - Active/Total)', color = color)
+    ax2.plot(nodeAmounts,efficiencyMetric, color = color, marker = 'o')
+    ax2.tick_params(axis = 'y', labelcolor = color)
+    
+    fig.tight_layout()
+    plt.show()

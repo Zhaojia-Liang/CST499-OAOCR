@@ -1,0 +1,957 @@
+now running:  J
+Node: J Finished Current time:  30
+now starting:  A
+Node: A Finished Current time:  60
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  65
+now ready:  G
+now starting:  G
+Node: C Finished Current time:  80
+Node: G Finished Current time:  85
+now ready:  H
+now starting:  B
+now starting:  H
+Node: B Finished Current time:  95
+now ready:  D
+now ready:  E
+now starting:  D
+Node: D Finished Current time:  105
+now starting:  E
+Node: H Finished Current time:  120
+Node: E Finished Current time:  145
+now ready:  I
+now starting:  I
+Node: I Finished Current time:  171
+Finished
+now running:  J
+Node: J Finished Current time:  30
+now starting:  A
+Node: A Finished Current time:  60
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  65
+now ready:  G
+now starting:  G
+Node: C Finished Current time:  80
+now starting:  B
+Node: G Finished Current time:  85
+now ready:  H
+now starting:  H
+Node: B Finished Current time:  90
+now ready:  D
+now ready:  E
+now starting:  D
+Node: D Finished Current time:  100
+now starting:  E
+Node: H Finished Current time:  120
+Node: E Finished Current time:  140
+now ready:  I
+now starting:  I
+Node: I Finished Current time:  166
+Finished
+now running:  J
+Node: J Finished Current time:  30
+now starting:  A
+Node: A Finished Current time:  60
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  F
+Node: F Finished Current time:  65
+now ready:  G
+now starting:  C
+now starting:  G
+Node: B Finished Current time:  70
+now ready:  D
+now ready:  E
+now starting:  D
+Node: D Finished Current time:  80
+now starting:  E
+Node: C Finished Current time:  85
+Node: G Finished Current time:  85
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  120
+Node: H Finished Current time:  120
+now ready:  I
+now starting:  I
+Node: I Finished Current time:  146
+Finished
+now running:  J
+Node: J Finished Current time:  30
+now starting:  A
+Node: A Finished Current time:  60
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  65
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  70
+now ready:  D
+now ready:  E
+now starting:  D
+Node: C Finished Current time:  80
+Node: D Finished Current time:  80
+now starting:  E
+Node: G Finished Current time:  85
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  120
+Node: H Finished Current time:  120
+now ready:  I
+now starting:  I
+Node: I Finished Current time:  146
+Finished
+now running:  J
+Node: J Finished Current time:  30
+now starting:  A
+Node: A Finished Current time:  60
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  65
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  70
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  80
+Node: D Finished Current time:  80
+Node: G Finished Current time:  85
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  110
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  120
+Node: I Finished Current time:  136
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+now running:  A
+now running:  J
+Node: A Finished Current time:  30
+Node: J Finished Current time:  30
+now ready:  B
+now ready:  C
+now ready:  F
+now starting:  B
+now starting:  C
+now starting:  F
+Node: F Finished Current time:  35
+now ready:  G
+now starting:  G
+Node: B Finished Current time:  40
+now ready:  D
+now ready:  E
+now starting:  D
+now starting:  E
+Node: C Finished Current time:  50
+Node: D Finished Current time:  50
+Node: G Finished Current time:  55
+now ready:  H
+now starting:  H
+Node: E Finished Current time:  80
+now ready:  I
+now starting:  I
+Node: H Finished Current time:  90
+Node: I Finished Current time:  106
+Finished
+Amount of Nodes 5
+Runtime 171
+Average efficiency:  86.55 
+
+Amount of Nodes 6
+Runtime 166
+Average efficiency:  74.3 
+
+Amount of Nodes 7
+Runtime 146
+Average efficiency:  72.41 
+
+Amount of Nodes 8
+Runtime 146
+Average efficiency:  63.36 
+
+Amount of Nodes 9
+Runtime 136
+Average efficiency:  60.46 
+
+Amount of Nodes 10
+Runtime 106
+Average efficiency:  69.81 
+
+Amount of Nodes 11
+Runtime 106
+Average efficiency:  63.46 
+
+Amount of Nodes 12
+Runtime 106
+Average efficiency:  58.18 
+
+Amount of Nodes 13
+Runtime 106
+Average efficiency:  53.7 
+
+Amount of Nodes 14
+Runtime 106
+Average efficiency:  49.87 
+
+Amount of Nodes 15
+Runtime 106
+Average efficiency:  46.54 
+
+Amount of Nodes 16
+Runtime 106
+Average efficiency:  43.63 
+
+Amount of Nodes 17
+Runtime 106
+Average efficiency:  41.07 
+
+Amount of Nodes 18
+Runtime 106
+Average efficiency:  38.78 
+
+Amount of Nodes 19
+Runtime 106
+Average efficiency:  36.74 
+
+Amount of Nodes 20
+Runtime 106
+Average efficiency:  34.91 
+
+Amount of Nodes 21
+Runtime 106
+Average efficiency:  33.24 
+
+Amount of Nodes 22
+Runtime 106
+Average efficiency:  31.73 
+
+Amount of Nodes 23
+Runtime 106
+Average efficiency:  30.35 
+
+Amount of Nodes 24
+Runtime 106
+Average efficiency:  29.09 
+
+Amount of Nodes 25
+Runtime 106
+Average efficiency:  27.92 
+
+Amount of Nodes 26
+Runtime 106
+Average efficiency:  26.85 
+
+Amount of Nodes 27
+Runtime 106
+Average efficiency:  25.86 
+
+Amount of Nodes 28
+Runtime 106
+Average efficiency:  24.93 
+
+Amount of Nodes 29
+Runtime 106
+Average efficiency:  24.07 
+
+Amount of Nodes 30
+Runtime 106
+Average efficiency:  23.27 
+
+Amount of Nodes 31
+Runtime 106
+Average efficiency:  22.52 
+
+Amount of Nodes 32
+Runtime 106
+Average efficiency:  21.82 
+
+Amount of Nodes 33
+Runtime 106
+Average efficiency:  21.15 
+
